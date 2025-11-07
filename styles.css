@@ -78,6 +78,8 @@ button {
     min-width: 145px;
 }
 
-.action {
+.digit,
+.action,
+.result {
     min-width: 67.5px;
 }
