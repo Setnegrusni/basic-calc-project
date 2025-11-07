@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc {
+    background: black;
+    min-width: 350px;
+    min-height: 550px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display {
+    margin: 25px 0px 25px;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 75px;
+}
+
+#disp {
+    min-width: inherit;
+    max-width: inherit;
+    min-height: inherit;
+    background-color: #4C5E45;
+    font-weight: bolder;
+    font-size: xx-large;
+    text-align: right;
+}
+
+.button-area {
+    margin: 0;
+    padding: 0;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 400px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.row-one,
+.row-two,
+.row-three,
+.row-four,
+.row-five {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 72px;
+    max-height: 72px;
+}
+
+
+button {
+    min-height: 72px;
+    max-height: 72px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.cle-del {
+    min-width: 145px;
+}
+
+.action {
+    min-width: 67.5px;
+}
