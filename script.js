@@ -5,7 +5,6 @@ const myActions = document.querySelectorAll(".action");
 const myEqual = document.querySelector("#equal");
 
 let myOperation = "";
-let myPrevOperation = "";
 let myQty = "";
 let myQty2 = "";
 
@@ -20,7 +19,7 @@ myActions.forEach((operation) => {
             myQty2 = "";
         }
 
-        //Se actualiza el valor de la operación hasta después de usar la primera
+        //Se actualiza el valor de la operación hasta después de usar la seleccionada previamente
         myOperation = operation.textContent;
     });
 });
