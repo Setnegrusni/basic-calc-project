@@ -3,6 +3,7 @@ const myInput = document.querySelector("#disp");
 const myDigits = document.querySelectorAll(".digit");
 const myActions = document.querySelectorAll(".action");
 const myEqual = document.querySelector("#equal");
+const myClear = document.querySelector("#clear");
 
 let myOperation = "";
 let myQty = "";
@@ -45,6 +46,14 @@ myEqual.addEventListener("click", () => {
     myQty = myInput.value;
     myQty2 = "";
 })
+
+//
+myClear.addEventListener("click", () => {
+    myInput.value = 0;
+    myQty = "";
+    myQty2 = "";
+    myOperation = "";
+});
 
 //Función que calcula el resultado para la operación especificada
 function getResult(firstQty, secondQty, operation) {
