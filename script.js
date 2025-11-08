@@ -46,9 +46,10 @@ myEqual.addEventListener("click", () => {
     myInput.value = getResult(myQty, myQty2, myOperation);
     myQty = myInput.value;
     myQty2 = "";
+    myOperation = "";
 })
 
-//
+//Evento para reiniciar calculadora al estado inicial
 myClear.addEventListener("click", () => {
     myInput.value = 0;
     myQty = "";
@@ -56,20 +57,21 @@ myClear.addEventListener("click", () => {
     myOperation = "";
 });
 
+//Evento para borrar el último caracter de la cantidad en pantalla
 myBack.addEventListener("click", () => {
     if (myOperation !== "") {
-        myQty2 = myQty2.substring(0, myQty2.length - 1)
+        myQty2 = myQty2.substring(0, myQty2.length - 1);
         myInput.value = myQty2;
     } else {
-        myQty = myQty.substring(0, myQty.length - 1)
+        myQty = myQty.substring(0, myQty.length - 1);
         myInput.value = myQty;
     }
 });
 
 //Función que calcula el resultado para la operación especificada
 function getResult(firstQty, secondQty, operation) {
-    firstQty = parseInt(firstQty);
-    secondQty = parseInt(secondQty);
+    firstQty = parseFloat(firstQty);
+    secondQty = parseFloat(secondQty);
 
     switch(operation){
         case "+":
