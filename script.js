@@ -9,8 +9,9 @@ const myBack = document.querySelector("#back");
 let myOperation = "";
 let myQty = "";
 let myQty2 = "";
+let myResult = "";
 
-myInput.value = 0;//valor inicial de la calculadora
+myInput.value = 0; //valor inicial de la calculadora
 
 //Evento para cada botón de operación
 myActions.forEach((operation) => {
@@ -18,6 +19,7 @@ myActions.forEach((operation) => {
         if (myQty !== "" && myQty2 !== "") {
             myInput.value = getResult(myQty, myQty2, myOperation);
             myQty = myInput.value;
+            myResult = "";
             myQty2 = "";
         }
 
@@ -29,6 +31,12 @@ myActions.forEach((operation) => {
 //Evento para cada botón de dígito. Lo agrega al display
 myDigits.forEach((digit) => {
     digit.addEventListener("click", () => {
+        if (myResult !== "") {
+            myQty = "";
+            myOperation = "";
+            myResult = "";
+        }
+
         if (myOperation === "") {
             myQty = myQty + digit.textContent;
             myInput.value = myQty;
@@ -43,11 +51,15 @@ myDigits.forEach((digit) => {
 
 //Evento para mostrar el resultado de la operación especificada
 myEqual.addEventListener("click", () => {
-    myInput.value = getResult(myQty, myQty2, myOperation);
-    myQty = myInput.value;
+    console.log("myQty: " + myQty);
+    console.log("myOperation: " + myOperation);
+    console.log("myQty2: " + myQty2);
+    console.log("myResult: " + getResult(myQty, myQty2, myOperation));
+    myQty = getResult(myQty, myQty2, myOperation);
+    myInput.value = myQty;
     myQty2 = "";
-    myOperation = "";
-})
+    //myOperation = "";
+});
 
 //Evento para reiniciar calculadora al estado inicial
 myClear.addEventListener("click", () => {
@@ -55,6 +67,7 @@ myClear.addEventListener("click", () => {
     myQty = "";
     myQty2 = "";
     myOperation = "";
+    myResult = "";
 });
 
 //Evento para borrar el último caracter de la cantidad en pantalla
@@ -75,12 +88,22 @@ function getResult(firstQty, secondQty, operation) {
 
     switch(operation){
         case "+":
-            return firstQty + secondQty;
+            myResult = firstQty + secondQty;
+            break;
         case "-":
-            return firstQty - secondQty;
+            myResult = firstQty - secondQty;
+            break;
         case "*":
-            return firstQty * secondQty;
+            myResult = firstQty * secondQty;
+            break;
         case "/":
-            return firstQty / secondQty;
+            secondQty == 0 ? myResult = "ERROR" : myResult = firstQty / secondQty;
+            break;
+    }
+
+    if (myResult.toString().length > 17) {
+        return myResult.toFixed(14);
+    } else {
+        return myResult
     }
 }
