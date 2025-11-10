@@ -5,6 +5,7 @@ const myActions = document.querySelectorAll(".action");
 const myEqual = document.querySelector("#equal");
 const myClear = document.querySelector("#clear");
 const myBack = document.querySelector("#back");
+const myDot = document.querySelector("#dot");
 
 let myOperation = "";
 let myQty = "";
@@ -33,6 +34,7 @@ myActions.forEach((operation) => {
 
         //Se actualiza el valor de la operación hasta después de usar la seleccionada previamente
         myOperation = operation.textContent;
+        document.getElementById("dot").disabled = false;
     });
 });
 
@@ -50,9 +52,15 @@ myDigits.forEach((digit) => {
         if (myOperation === "") {
             myQty = myQty + digit.textContent;
             myInput.value = myQty;
+            if (myQty.indexOf(".") > 0) {
+                document.getElementById("dot").disabled = true;
+            }
         } else { //Si si la hay, es la segunda cantidad
             myQty2 = myQty2 + digit.textContent;
             myInput.value = myQty2;
+            if (myQty2.indexOf(".") > 0) {
+                document.getElementById("dot").disabled = true;
+            }
         }
     });
 });
