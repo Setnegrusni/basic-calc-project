@@ -82,6 +82,7 @@ myClear.addEventListener("click", () => {
     myQty2 = "";
     myOperation = "";
     myResult = "";
+    document.getElementById("dot").disabled = false;
 });
 
 //Evento para borrar el último caracter de la cantidad en pantalla
@@ -89,9 +90,19 @@ myBack.addEventListener("click", () => {
     if (myOperation !== "") {
         myQty2 = myQty2.substring(0, myQty2.length - 1);
         myInput.value = myQty2;
+        if (myQty2.indexOf(".") > 0) {
+            document.getElementById("dot").disabled = true;
+        } else {
+            document.getElementById("dot").disabled = false;
+        }
     } else {
         myQty = myQty.substring(0, myQty.length - 1);
         myInput.value = myQty;
+        if (myQty.indexOf(".") > 0) {
+            document.getElementById("dot").disabled = true;
+        } else {
+            document.getElementById("dot").disabled = false;
+        }
     }
 });
 
