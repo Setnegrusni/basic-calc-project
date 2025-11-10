@@ -76,10 +76,19 @@ button {
 
 .cle-del {
     min-width: 145px;
+    background-color: #43ABD1;
 }
 
 .digit,
 .action,
 .result {
     min-width: 67.5px;
+}
+
+.action {
+    background-color: #E4791B;
+}
+
+.result {
+    background-color: #2D762E;
 }
